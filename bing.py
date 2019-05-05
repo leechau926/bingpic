@@ -21,6 +21,6 @@ with open(filename[0], 'wb') as f:
     shutil.copyfileobj(r.raw, f)
 now_time = time.asctime(time.localtime(time.time()))
 with open('bing.log', 'a', encoding='utf-8') as l:
-    l.write(now_time + filename[0] + 'saved!\n')
+    l.write(now_time + ' ' + filename[0] + ' ' + 'saved!\n')
 # print(url + fhref)
 # print(filename[0])
