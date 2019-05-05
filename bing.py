@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import shutil
+import time
 
 url = 'https://cn.bing.com'
 headers = {
@@ -18,5 +19,8 @@ r = requests.get(url + fhref, stream=True, headers=headers)
 with open(filename[0], 'wb') as f:
     r.raw.decode_content = True
     shutil.copyfileobj(r.raw, f)
-print(url + fhref)
-print(filename[0])
+now_time = time.asctime(time.localtime(time.time()))
+with open('bing.log', 'a', encoding='utf-8') as l:
+    l.write(now_time + filename[0] + 'saved!\n')
+# print(url + fhref)
+# print(filename[0])
